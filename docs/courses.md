@@ -14,6 +14,7 @@ This course focuses much heavier on programming. We are going to discuss some fu
 - [Session 2: Loops & conditionals](sessions/s2.md)
 - [Session 3: Practical session](sessions/s3.md)
 - [Session 4: Variables](sessions/s4.md)
+- [Session 5: Variables (recap)](sessions/s5.md)
 
 ### Topics
 
