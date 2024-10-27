@@ -154,3 +154,124 @@ void loop() {
   }
 }
 ```
+
+### Серво-мотор
+
+`setup_servo_pins()` настроить серво-моторы (нужно сделать 1 раз в `setup`).
+
+`rotate_servo(servo_ind, degrees)` повернуть мотор номер `servo_ind` (`SERVO_S1-3`) на `degrees` градусов (0 - 180).
+
+```c
+// Example
+
+void setup() {
+  setup_servo_pins();
+}
+
+void loop() {
+  rotate_servo(SERVO_S1, 0);
+  rotate_servo(SERVO_S2, 90);
+  rotate_servo(SERVO_S3, 180);
+}
+```
+
+### RGB светодиоды
+
+`setup_addr_leds()` настроить RGB светодиоды (нужно сделать 1 раз в `setup`).
+
+`set_led_color(led_index, r, g, b)` установить цвет светодиода номер `led_index` (`LED1-4`) в значение `r` (0-255), `g` (0-255), `b` (0-255). Значения RGB для выбранного цвета можно проверить по [ссылке](https://www.rapidtables.com/web/color/RGB_Color.html).
+
+```c
+// Example
+
+void setup() {
+  setup_addr_leds();
+}
+
+void loop() {
+  set_led_color(LED_1, 255, 0, 0);
+  set_led_color(LED_2, 0, 255, 0);
+  set_led_color(LED_3, 0, 0, 255);
+  set_led_color(LED_4, 255, 255, 255);
+}
+```
+
+### Кнопка User
+
+`setup_user_button()` настроить кнопку User (нужно сделать 1 раз в `setup`).
+
+`check_user_button_pressed()` проверить, нажата ли в данный момент кнопка (возвращает `true` или `false`).
+
+```c
+// Example
+
+void setup() {
+  setup_user_button();
+}
+
+void loop() {
+  if(check_user_button_pressed()) digitalWrite(13, HIGH);
+  else digitalWrite(13, LOW);
+  delay(10);
+}
+```
+
+### LED матрица
+
+`clear_led_matrix()` очистить матрицу.
+
+`set_led_matrix_pixel(row, col, value)` включить или выключить выбранный пиксель, т.е. проставить пиксель с координатами `row`, `col` (0-7) в значение `value` (`HIGH` или `LOW`).
+
+`show_led_matrix()` показать изменения пикселей на матрице. Эту функцию нужно использовать каждый раз после `clear_led_matrix` и `set_led_matrix_pixel`, чтобы соответствующие пиксели действительно включились/выключились.
+
+```c
+// Example
+
+void loop() {
+  set_led_matrix_pixel(1, 5, HIGH);
+  show_led_matrix();
+  delay(1000);
+  clear_led_matrix();
+  show_led_matrix();
+  delay(1000);
+}
+```
+
+### Потенциометр (крутилка)
+
+`read_potentiometer_value()` получить текущее значение потенциометра (0 - 1024).
+
+```c
+// Example
+
+int val = 0;
+
+void setup() {
+  Serial.begin(115200);
+}
+
+void loop() {
+  val = read_potentiometer_value();
+  Serial.println(val);
+  delay(10);
+}
+```
+
+### Сенсор расстояния
+
+`setup_distance_sensors()` настроить сенсоры расстояния (нужно сделать 1 раз в `setup`).
+
+`measure_distance_mm(sensor_id)` получить расстояние в миллиметрах с сенсора номер `sensor_id` (`DISTANCE_L1-3`).
+
+```c
+// Example
+
+void setup() {
+  setup_distance_sensors();
+  Serial.begin(115200);
+}
+
+void loop() {
+  Serial.println(measure_distance_mm(DISTANCE_L1));
+}
+```
