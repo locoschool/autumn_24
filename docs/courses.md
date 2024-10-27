@@ -15,6 +15,8 @@ This course focuses much heavier on programming. We are going to discuss some fu
 - [Session 3: Practical session](sessions/s3.md)
 - [Session 4: Variables](sessions/s4.md)
 - [Session 5: Variables (recap)](sessions/s5.md)
+- [Session 6: LOCO Board](sessions/s6.md)
+- [Session 7: LOCO Board Continued](sessions/s7.md)
 
 ### Topics
 
