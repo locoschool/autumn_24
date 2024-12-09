@@ -12,6 +12,16 @@
 
 - Функция - участок кода, которым можно воспользоваться по имени
 
+#### Subroutine
+
+A subroutine is a function without arguments. By calling `myFunction();`, the commands inside are executed.
+
+```c
+void myFunction(){
+  // ...
+}
+```
+
 ### Условия
 
 ```c
@@ -118,6 +128,8 @@ void loop(){
 
 `delay(ms)` приостановить программу на `ms` миллисекунд (в 1 секунде 1000 миллисекунд)
 
+`millis()` миллисекунды после запуска программы
+
 ### Звук
 
 `tone(pin, frequency, duration)` воспроизводить на пине номер `pin` ноту частоты `frequency` в течение `duration` миллисекунд
@@ -129,6 +141,41 @@ void loop(){
 
 void loop(){
     tone(10, 440, 100);
+}
+```
+
+### Code Snippets
+
+#### concurrent delay
+
+Подождaть не менее `100ms` между вызовами `myFunction()`.
+
+```c
+long myFunctionTimer = 0;
+void myFunction(){
+    if(millis() > myFunctionTimer){
+        // do stuff
+        myFunctionTimer = millis() + 100;
+    }
+}
+```
+
+#### concurrent 'loops'
+
+Как `for(int x=0; x<8; x++)` но не блокирует.
+
+```c
+int x = 0;
+void myFunction(){
+
+  // inside of loop
+
+  x++;
+  if (!(x < 8)){
+      x=0;
+      // after loop
+  }
+
 }
 ```
 
