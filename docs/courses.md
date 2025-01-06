@@ -19,6 +19,9 @@ This course focuses much heavier on programming. We are going to discuss some fu
 - [Session 7: LOCO Board Continued](sessions/s7.md)
 - [Session 8: Recap variables & practice](sessions/s8.md)
 - [Session 9: Loops](sessions/s9.md)
+- [Session 10: Control Flows](sessions/s10.md)
+- [Session 11: Subroutines](sessions/s11.md)
+- [Session 12: Multitasking](sessions/s12.md)
 
 ### Topics
 

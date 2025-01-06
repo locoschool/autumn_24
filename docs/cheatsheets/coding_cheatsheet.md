@@ -12,28 +12,50 @@
 
 - Функция - участок кода, которым можно воспользоваться по имени
 
+#### Subroutine
+
+A subroutine is a function without arguments. By calling `myFunction();`, the commands inside are executed.
+
+```c
+void myFunction(){
+  // ...
+}
+```
+
 ### Условия
 
 ```c
 // Example
 
-if(condition)
+if(condition1)
 {
-    // идем сюда, если условие (condition) выполняется
+    // идем сюда, если условие (condition1) выполняется
+}
+else if(condition2)
+{
+    // идем сюда, если условие (condition1) не выполняется, условие (condition2) выполняется
+}
+else if(condition3)
+{
+    // идем сюда, если условия (condition1, condition2) не выполняются, условие (condition3) выполняется
 }
 else
 {
-    // и сюда, если условие не выполняется
+    // и сюда, если никакие условия не выполняются
 }
 ```
 
 В качестве условия можно сравнивать значения:
-- `>` больше
-- `<` меньше
-- `==` равно
-- `!=` не равно
-- `>=` больше либо равно
-- `<=` меньше либо равно
+- `!a` не a
+- `a>b` a больше b
+- `a<b` a меньше b
+- `a==b` a равно b
+- `a!=b` a не равно b
+- `a>=b` a больше либо равно b
+- `a<=b` a меньше либо равно b
+- `(a) || (b)` либо a, либо b 
+- `(a) && (b)` a и b
+- `a%b` a не делится на b
 
 ```c
 // Example
@@ -106,6 +128,8 @@ void loop(){
 
 `delay(ms)` приостановить программу на `ms` миллисекунд (в 1 секунде 1000 миллисекунд)
 
+`millis()` миллисекунды после запуска программы
+
 ### Звук
 
 `tone(pin, frequency, duration)` воспроизводить на пине номер `pin` ноту частоты `frequency` в течение `duration` миллисекунд
@@ -117,6 +141,41 @@ void loop(){
 
 void loop(){
     tone(10, 440, 100);
+}
+```
+
+### Code Snippets
+
+#### concurrent delay
+
+Подождaть не менее `100ms` между вызовами `myFunction()`.
+
+```c
+long myFunctionTimer = 0;
+void myFunction(){
+    if(millis() > myFunctionTimer){
+        // do stuff
+        myFunctionTimer = millis() + 100;
+    }
+}
+```
+
+#### concurrent 'loops'
+
+Как `for(int x=0; x<8; x++)` но не блокирует.
+
+```c
+int x = 0;
+void myFunction(){
+
+  // inside of loop
+
+  x++;
+  if (!(x < 8)){
+      x=0;
+      // after loop
+  }
+
 }
 ```
 
