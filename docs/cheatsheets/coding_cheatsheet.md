@@ -140,7 +140,7 @@ void loop(){
 // Example
 
 void loop(){
-    tone(10, 440, 100);
+    tone(A3, 440, 100);
 }
 ```
 
