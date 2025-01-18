@@ -140,7 +140,7 @@ void loop(){
 // Example
 
 void loop(){
-    tone(10, 440, 100);
+    tone(A3, 440, 100);
 }
 ```
 
@@ -167,15 +167,17 @@ void myFunction(){
 ```c
 int x = 0;
 void myFunction(){
-
-  // inside of loop
-
-  x++;
-  if (!(x < 8)){
-      x=0;
-      // after loop
+  if(x==0){
+    // before loop
   }
-
+  if(x<8){
+    // inside of loop
+    x++;
+  }
+  else{
+    // after loop
+    x = 0;
+  }
 }
 ```
 
