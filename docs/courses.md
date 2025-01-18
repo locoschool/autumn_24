@@ -22,6 +22,7 @@ This course focuses much heavier on programming. We are going to discuss some fu
 - [Session 10: Control Flows](sessions/s10.md)
 - [Session 11: Subroutines](sessions/s11.md)
 - [Session 12: Multitasking](sessions/s12.md)
+- [Session 13: Multitasking (continued)](sessions/s13.md)
 
 ### Topics
 
